@@ -12,3 +12,4 @@ texture = ExtResource("1_3p1dt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("2")
+disabled = true
