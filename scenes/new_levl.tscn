@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://do8rod351lmkl"]
+
+[ext_resource type="Texture2D" uid="uid://3ruxfsvp87ub" path="res://assets/playerShip1_green.png" id="3_8qa2b"]
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="3_a6q5i"]
+[ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="4_2qfxt"]
+[ext_resource type="Texture2D" uid="uid://cbwgix0inp3tk" path="res://assets/snow.png" id="4_647ap"]
+[ext_resource type="Script" path="res://scenes/ObjectiveArea.gd" id="4_shv6n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl6sd"]
+size = Vector2(297.95, 234.364)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28b44"]
+size = Vector2(304.167, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7jto"]
+size = Vector2(82, 86)
+
+[node name="NewLevl" type="Node2D"]
+
+[node name="ObjectiveArea" type="Area2D" parent="."]
+position = Vector2(361, 677)
+scale = Vector2(0.647642, 0.775813)
+script = ExtResource("4_shv6n")
+
+[node name="Fasilkom" type="Sprite2D" parent="ObjectiveArea"]
+position = Vector2(2223.45, -139.209)
+scale = Vector2(1.54406, 1.28897)
+texture = ExtResource("3_a6q5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
+position = Vector2(2217.27, -140.498)
+shape = SubResource("RectangleShape2D_wl6sd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1505, 1308)
+scale = Vector2(1.36, 1)
+
+[node name="Snow2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(40.4412, -260)
+scale = Vector2(39.0924, 1.95714)
+texture = ExtResource("4_647ap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(28.3088, -266)
+scale = Vector2(8.99999, 1)
+shape = SubResource("RectangleShape2D_28b44")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_2qfxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(116, 913)
+shape = SubResource("RectangleShape2D_a7jto")
+
+[node name="PlayerShip1Green" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(116, 913)
+rotation = 1.57637
+scale = Vector2(0.840812, 0.865555)
+texture = ExtResource("3_8qa2b")
+
+[connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]

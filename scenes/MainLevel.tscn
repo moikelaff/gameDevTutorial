@@ -34,8 +34,8 @@ script = ExtResource("4")
 position = Vector2(70.625, 40)
 shape = SubResource("1")
 
-[node name="Fasilkom" type="Sprite2D" parent="."]
-position = Vector2(35, 240)
+[node name="Fasilkom" type="Sprite2D" parent="ObjectiveArea"]
+position = Vector2(77, 24)
 rotation = -3.14159
 scale = Vector2(1.09999, -0.991423)
 texture = ExtResource("3_dxkxr")
